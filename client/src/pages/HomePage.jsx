@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 function HomePage() {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
-  const [searchWord, setSearchWord] = useState([]);
 
   const getData = async () => {
     const response = await axios.get(
@@ -76,7 +75,17 @@ function HomePage() {
                     return tagsCopy.map((tag, index) => {
                       if (tag !== "และ") {
                         return (
-                          <span className="Styled-Span" key={index}>
+                          <span
+                            className="Styled-Span"
+                            key={index}
+                            onClick={() => {
+                              const currentSearchWord = [...searchText, tag];
+                              const searchWord = currentSearchWord
+                                .join(" ")
+                                .split(",");
+                              setSearchText(searchWord);
+                            }}
+                          >
                             {tag}
                           </span>
                         );
