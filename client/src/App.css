@@ -8,6 +8,11 @@
   font-family: "Kanit";
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 .Background {
   width: 100vw;
   min-height: 100vh;
@@ -49,6 +54,7 @@ input {
 .Search-Result-Container {
   padding-top: 30px;
   padding-left: 5%;
+  padding-right: 5%;
   width: 100%;
   height: auto;
   display: flex;
@@ -67,7 +73,7 @@ input {
 }
 
 .Main-Photo {
-  width: 600px;
+  width: 500px;
   height: 350px;
   border-radius: 20px;
   flex-basis: 33%;
@@ -92,7 +98,7 @@ p {
 }
 
 .Sub-Photo {
-  width: 150px;
+  max-width: 150px;
   height: 150px;
   border-radius: 10px;
 }
@@ -139,7 +145,9 @@ h3:hover {
 }
 
 .Clipboard-Button {
+  border: solid 2px;
   border-radius: 100%;
+  border-color: rgb(0, 166, 255);
   height: 50px;
   width: 50px;
   background-color: white;
@@ -149,9 +157,16 @@ h3:hover {
 }
 .Clipboard-Button:hover {
   cursor: pointer;
+  background-color: rgba(178, 228, 255, 0.341);
+}
+
+.Clipboard-Button:active {
+  cursor: pointer;
+  background-color: rgba(73, 191, 254, 0.493);
 }
 
 .Clipboard-Img {
   height: 30px;
   width: 30px;
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(180deg);
 }
