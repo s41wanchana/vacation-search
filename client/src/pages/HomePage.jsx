@@ -7,9 +7,11 @@ function HomePage() {
   const [data, setData] = useState([]);
   const [textToCopy, setTextToCopy] = useState("");
 
+  const serverUrl = import.meta.env.VITE_API_URL;
+
   const getData = async () => {
     const response = await axios.get(
-      `${import.meta.env.VITE_API_URL}/trips?keywords=${searchText}`
+      `${serverUrl}/trips?keywords=${searchText}`
     );
     setData(response.data.data);
   };
