@@ -9,7 +9,7 @@ function HomePage() {
 
   const getData = async () => {
     const response = await axios.get(
-      `http://localhost:4001/trips?keywords=${searchText}`
+      `${import.meta.env.VITE_API_URL}/trips?keywords=${searchText}`
     );
     setData(response.data.data);
   };
