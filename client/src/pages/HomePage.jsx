@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import linkIcon from "../assets/icons/link.png";
 
 function HomePage() {
   const [searchText, setSearchText] = useState("");
   const [data, setData] = useState([]);
+  const [textToCopy, setTextToCopy] = useState("");
 
   const getData = async () => {
     const response = await axios.get(
@@ -20,8 +22,12 @@ function HomePage() {
     setSearchText(event.target.value);
   };
 
-  const openInNewTap = (url) => {
+  const openInNewTab = (url) => {
     window.open(url, "_blank", "noreferrer");
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
   };
 
   return (
@@ -52,7 +58,7 @@ function HomePage() {
               <div className="Content-Preview">
                 <h3
                   onClick={() => {
-                    openInNewTap(item.url);
+                    openInNewTab(item.url);
                   }}
                 >
                   {item.title}
@@ -61,7 +67,7 @@ function HomePage() {
                 <p
                   className="Clickable"
                   onClick={() => {
-                    openInNewTap(item.url);
+                    openInNewTab(item.url);
                   }}
                 >
                   อ่านต่อ
@@ -106,6 +112,20 @@ function HomePage() {
                     );
                   })}
                 </div>
+              </div>
+              <div className="Clipboard-Container">
+                <button
+                  className="Clipboard-Button"
+                  onClick={() => {
+                    copyToClipboard(item.url);
+                  }}
+                >
+                  <img
+                    className="Clipboard-Img"
+                    src={linkIcon}
+                    alt="clipboard-icon"
+                  />
+                </button>
               </div>
             </div>
           );

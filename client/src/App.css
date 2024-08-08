@@ -63,6 +63,7 @@ input {
   display: flex;
   justify-content: center;
   gap: 30px;
+  position: relative;
 }
 
 .Main-Photo {
@@ -129,4 +130,28 @@ p {
 h3:hover {
   color: rgba(169, 169, 169, 0.716);
   cursor: pointer;
+}
+
+.Clipboard-Container {
+  position: absolute;
+  bottom: 20px;
+  right: 50px;
+}
+
+.Clipboard-Button {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Clipboard-Button:hover {
+  cursor: pointer;
+}
+
+.Clipboard-Img {
+  height: 30px;
+  width: 30px;
 }
