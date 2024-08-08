@@ -9,7 +9,6 @@ function HomePage() {
     const response = await axios.get(
       `http://localhost:4001/trips?keywords=${searchText}`
     );
-    console.log(response.data.data);
     setData(response.data.data);
   };
 
@@ -98,11 +97,6 @@ function HomePage() {
                       }
                     });
                   })()}
-                  {/* {item.tags
-                    .splice(item.tags.length - 1, 0, "และ")
-                    .map((tags, index) => {
-                      return <span key={index}>{tags}</span>;
-                    })} */}
                 </p>
                 <br />
                 <div className="Sub-Photo-Container">
